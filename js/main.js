@@ -44,11 +44,19 @@ function conferirPalpite(){
 
 envioPalpite.addEventListener('click', conferirPalpite);
 
+function apertouEnter(evt){
+    if(evt.keyCode==13){
+        conferirPalpite();
+    }
+}
+campoPalpite.addEventListener('keydown', apertouEnter);
+
 function configFimDeJogo() {
     campoPalpite.disabled = true;
     envioPalpite.disabled = true;
     botaoReinicio = document.createElement('button');
     botaoReinicio.textContent = 'Iniciar novo jogo';
+    botaoReinicio.classList.add("botaoReinicio");
     document.body.appendChild(botaoReinicio);
     botaoReinicio.addEventListener('click', reiniciarJogo);
 }
